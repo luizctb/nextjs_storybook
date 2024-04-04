@@ -1,17 +1,23 @@
 import { Meta, StoryObj } from '@storybook/react';
-import IdPage from '../page';
-import { JSX } from 'react';
+import IdPage from './page';
+import { UserProps } from './page';
 
-export default {
-    title: 'Users UI/IdIdentification',
-    component: IdPage,    
-    decorators: [        
-        (Story) => (
-            <div>
-                <Story />
-            </div>
-        )
-    ],
-} as Meta;
+const meta: Meta<UserProps> = {
+    title: 'Users/UserId',  
+    component: IdPage,  
+};
+export default meta;
+type Story = StoryObj<UserProps>;
 
-export const Default: StoryObj = {};
+export const NoName: Story = {
+  args: {
+    params: {id: '12345'},
+  },
+};
+
+export const WithName: Story = {
+    args: {
+      params: {id: '12345'},
+      name: 'Luiz'
+    },
+  };
